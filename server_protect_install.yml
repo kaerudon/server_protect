@@ -3,7 +3,7 @@
   hosts: all
   become: yes
   tasks:
-    - name: yum install package (server protcet)
+    - name: yum install package (server protct)
       yum:
         name:
           - glibc
