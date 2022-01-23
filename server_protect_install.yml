@@ -1,0 +1,42 @@
+---
+- name: yum install package (server protect)
+  hosts: all
+  become: yes
+  tasks:
+    - name: yum install package (server protcet)
+      yum:
+        name:
+          - glibc
+          - libgcc
+          - zlib
+          - bzip2
+          - libuuid
+          - libstdc++
+          - nss-softokn-freebl
+          - perl-Sys-Syslog
+        state: latest
+    
+    - name: get server protect module
+      get_url:
+        url: https://files.trendmicro.com/products/splx/SPLX30-X64-Redhat8_CentOS8_Suse15-repack3.tar.gz
+        dest: /usr/local/src
+         
+    - name: unzip install file
+      command: tar -xvzf SPLX30-X64-Redhat8_CentOS8_Suse15-repack3.tar.gz
+      args:
+        chdir: /usr/local/src
+    
+    - name: get server protect kernel module
+      get_url:
+        url: https://files.trendmicro.com/products/kernel/splx_kernel_module-3.0.1.0024.rhel8_4.18.0-305.25.1.el8_4.x86_64.x86_64.tar.gz
+        dest: /usr/local/src
+         
+    - name: unzip install kernel module file
+      command: tar -xvzf splx_kernel_module-3.0.1.0024.rhel8_4.18.0-305.25.1.el8_4.x86_64.x86_64.tar.gz
+      args:
+        chdir: /usr/local/src
+     
+    #- name: Run SProtectLinux-3.0.bin
+    #  shell: ./SProtectLinux-3.0.bin -hs
+    #  args:
+    #    chdir: /usr/local/src
