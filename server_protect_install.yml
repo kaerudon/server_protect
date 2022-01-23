@@ -11,10 +11,19 @@
           - zlib
           - bzip2
           - libuuid
-          - libstdc++
           - nss-softokn-freebl
           - perl-Sys-Syslog
         state: latest
+        
+    - name: get compat-libstdc++-33-3.2.3-72.el7.x86_64.rpm
+      get_url:
+        url: http://mirror.centos.org/centos/7/os/x86_64/Packages/compat-libstdc++-33-3.2.3-72.el7.x86_64.rpm
+        dest: /usr/local/src
+    
+    - name: yum install compat-libstdc++-33-3.2.3-72.el7.x86_64.rpm
+      command: yum localinstall -y compat-libstdc++-33-3.2.3-72.el7.x86_64.rpm
+      args:
+        chdir: /usr/local/src
     
     - name: get server protect module
       get_url:
