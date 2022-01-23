@@ -1,5 +1,5 @@
 ---
-- name: firewalld add server protect port 14942 and 14943
+- name: firewalld add server protect port 81 and 14943
   hosts: all
   become: yes
   tasks:
