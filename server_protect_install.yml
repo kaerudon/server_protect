@@ -44,6 +44,16 @@
       command: tar -xvzf splx_kernel_module-3.0.1.0024.rhel8_4.18.0-305.25.1.el8_4.x86_64.x86_64.tar.gz
       args:
         chdir: /usr/local/src
+        
+    - name: get server protect patch9 
+      get_url:
+        url: https://files.trendmicro.com/products/splx/splx_30_lx_en_sp1_patch9.tar.gz
+        dest: /usr/local/src
+        
+    - name: unzip server protect patch9 
+      get_url:
+        command: tar -xvzf splx_30_lx_en_sp1_patch9.tar.gz
+        dest: /usr/local/src
      
     #- name: Run SProtectLinux-3.0.bin
     #  shell: ./SProtectLinux-3.0.bin -hs
