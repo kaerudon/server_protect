@@ -1,0 +1,20 @@
+---
+- name: firewalld add server protect port 14942 and 14943
+  hosts: all
+  become: yes       
+    - name: set the port state(serverprotect 14942)
+      firewalld: 
+        permanent: True
+        port: 14942/tcp
+        state: enabled
+        immediate: yes
+        
+    - name: set the port state(serverprotect 14943)
+      firewalld: 
+        permanent: True
+        port: 14943/tcp
+        state: enabled
+        immediate: yes
+        
+    - name: firewalld reload
+      command: firewall-cmd --reload
