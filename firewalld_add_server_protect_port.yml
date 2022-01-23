@@ -1,7 +1,8 @@
 ---
 - name: firewalld add server protect port 14942 and 14943
   hosts: all
-  become: yes       
+  become: yes
+  tasks:
     - name: set the port state(serverprotect 14942)
       firewalld: 
         permanent: True
