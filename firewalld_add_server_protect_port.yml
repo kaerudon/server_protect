@@ -3,12 +3,12 @@
   hosts: all
   become: yes
   tasks:
-    - name: set the port state(serverprotect 14942)
-      firewalld: 
-        permanent: True
-        port: 14942/tcp
-        state: enabled
-        immediate: yes
+    #- name: set the port state(serverprotect 14942)
+    #  firewalld: 
+    #    permanent: True
+    #    port: 14942/tcp
+    #    state: enabled
+    #    immediate: yes
         
     - name: set the port state(serverprotect 14943)
       firewalld: 
