@@ -1,0 +1,44 @@
+---
+- name: after insatll serverprotect
+  hosts: all
+  gather_facts: no
+  ignore_errors: yes
+  become: yes
+  tasks:
+   
+    - name: remove compat-libstdc++-33-3.2.3-72.el7.x86_64.rpm
+      shell: rm -f compat-libstdc++-33-3.2.3-72.el7.x86_64.rpm
+      args:
+        chdir: /usr/local/src
+    
+    - name: remove SPLX30-X64-Redhat8_CentOS8_Suse15-repack3.tar.gz
+      shell: rm -f SPLX30-X64-Redhat8_CentOS8_Suse15-repack3.tar.gz
+      args:
+        chdir: /usr/local/src
+        
+    - name: remove splx_kernel_module-3.0.1.0024.rhel8_4.18.0-305.25.1.el8_4.x86_64.x86_64.tar.gz
+      shell: rm -f splx_kernel_module-3.0.1.0024.rhel8_4.18.0-305.25.1.el8_4.x86_64.x86_64.tar.gz
+      args:
+        chdir: /usr/local/src
+         
+    - name: remove splx_kernel_splx_30_lx_en_sp1_patch9.tar.gz
+      shell: rm -f splx_30_lx_en_sp1_patch9.tar.gz
+      args:
+        chdir: /usr/local/src
+    
+    - name: move kernel hook module
+      shell: mv splxmod-4.18.0-305.25.1.el8_4.x86_64.x86_64.o*
+      args:
+        chdir: /opt/TrendMicro/SProtectLinux/SPLX.module/
+    
+    - name: remove compat-libstdc++-33-3.2.3-72.el7.x86_64.rpm
+      shell: mv splxmod-4.18.0-305.25.1.el8_4.x86_64.x86_64.o*
+      args:
+        chdir: /opt/TrendMicro/SProtectLinux/SPLX.module
+        
+    - name: server protect restart service
+      command: /etc/init.d/splx restart
+           
+        
+      /etc/init.d/splx restart
+    
