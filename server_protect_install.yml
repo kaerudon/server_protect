@@ -51,7 +51,6 @@
         dest: /usr/local/src
         
     - name: unzip server protect patch9 
-      get_url:
         command: tar -xvzf splx_30_lx_en_sp1_patch9.tar.gz
         dest: /usr/local/src
      
