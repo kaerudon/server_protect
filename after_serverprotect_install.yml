@@ -38,7 +38,4 @@
         
     - name: server protect restart service
       command: /etc/init.d/splx restart
-           
-        
-      /etc/init.d/splx restart
     
