@@ -51,8 +51,9 @@
         dest: /usr/local/src
         
     - name: unzip server protect patch9 
-        command: tar -xvzf splx_30_lx_en_sp1_patch9.tar.gz
-        dest: /usr/local/src
+      command: tar -xvzf splx_30_lx_en_sp1_patch9.tar.gz
+      args:
+        chdir: /usr/local/src
      
     #- name: Run SProtectLinux-3.0.bin
     #  shell: ./SProtectLinux-3.0.bin -hs
